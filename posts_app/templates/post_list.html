@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Lista de Postagens {% endblock title %}
+
+{% block content %}
+    <h1>Todos os posts</h1>
+
+    {% for post in posts %}
+    
+    <img src="{{post.post_image.url}}" width="150" alt="{{post.post_title}}">
+    <p>{{post.post_title}}</p>
+    <p>{{post.post_description}}</p>
+
+    {% endfor %}
+    
+{% endblock content %}
