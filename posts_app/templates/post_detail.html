@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Post details {% endblock title %}  
+
+{% block content %}
+
+    <div class="text-center">
+        
+        <a class="btn btn-warning" href="{% url "post_update" post.id %}">Update post</a>
+        <a class="btn btn-danger" href="{% url "post_delete" post.id %}">Delete post</a>
+        <h1>{{post.post_title}}</h1>
+        
+        <p>Post created at: {{post.post_create_at}}</p>
+        
+        <img src="{{post.post_image.url}}" width="300" alt="{{post.post_title}}">
+        
+        <p>{{post.post_description}}</p>
+    </div>
+
+
+{% endblock content %}
+

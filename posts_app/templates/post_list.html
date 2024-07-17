@@ -3,14 +3,23 @@
 {% block title %} Lista de Postagens {% endblock title %}
 
 {% block content %}
+
+    <a class="btn btn-success" href="{% url "post_create" %}">Create your post!</a>
+
     <h1>Todos os posts</h1>
-
-    {% for post in posts %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for post in posts %}
+        <div class="col">
+            <div class="card h-100 text-bg-light">
+                <img src="{{post.post_image.url}}" class="card-img-top" alt="{{post.post_title}}">
+                <div class="card-body">
+                    <h4 class="card-text">{{post.post_title}}</h4>
+                    <a class="btn btn-info" href="{% url "post_detail" post.id %}">Description</a>
+                    <p>{{post.post_description}}</p>
+                </div>
+            </div>
+        </div>
     
-    <img src="{{post.post_image.url}}" width="150" alt="{{post.post_title}}">
-    <p>{{post.post_title}}</p>
-    <p>{{post.post_description}}</p>
-
     {% endfor %}
     
 {% endblock content %}
